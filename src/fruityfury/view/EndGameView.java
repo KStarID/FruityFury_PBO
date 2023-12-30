@@ -1,8 +1,8 @@
 package fruityfury.view;
 
-import fruitiyfury.Koneksi;
-import fruitiyfury.latar;
-import fruityfury.controller.GameController;
+import fruityfury.Koneksi;
+import fruityfury.latar;
+import fruitiyfury.controller.GameController;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -18,8 +18,8 @@ import java.sql.ResultSet;
 import javax.swing.JPanel;
 
 import fruityfury.model.Player;
-import fruitiyfury.Koneksi;
-import fruitiyfury.latar5;
+import fruityfury.Koneksi;
+import fruityfury.latar5;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;

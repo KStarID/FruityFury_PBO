@@ -11,8 +11,6 @@ import java.io.IOException;
 
 import fruityfury.model.Field;
 import fruityfury.model.GameObject;
-import java.awt.Color;
-import java.awt.Graphics2D;
 
 public class GameView extends JPanel {
 	private static final long serialVersionUID = -7837067837641826234L;
@@ -20,13 +18,6 @@ public class GameView extends JPanel {
 	private Field field;
 	private BufferedImage bg;
 	private ImageIcon[] images;
-                    
-                // New fields for slash rendering
-                private int slashX1;
-                private int slashY1;
-                private int slashX2;
-                private int slashY2;
-                private boolean slashing;
 
 	/**
 	 * Sets up the dimensions of the panel and loads the images to be used in
@@ -50,12 +41,6 @@ public class GameView extends JPanel {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-                                // Initialize slash variables
-                                slashX1 = 0;
-                                slashY1 = 0;
-                                slashX2 = 0;
-                                slashY2 = 0;
-                                slashing = false;
 		// Load images for the GameObjects
 		images = new ImageIcon[7];
 		images[0] = createIcon("/fruityfury/resources/Apel (2).png", "apple");
@@ -87,43 +72,15 @@ public class GameView extends JPanel {
 			return null;
 		}
 	}
-        
-                // Draw the colored slash
-                private void drawSlash(Graphics g) {
-                    Graphics2D g2d = (Graphics2D) g;
-                    g2d.setColor(Color.YELLOW); // Set the color to yellow, you can change it as needed
-                    g2d.drawLine(slashX1, slashY1, slashX2, slashY2);
-                }
 
 	/**
 	 * This method is overridden from JPanel, it is used by swing to paint the
 	 * view. It renders the GameObject on the game field.
 	 */
-                    // New methods for slash rendering
-                    public void setSlash(int x1, int y1, int x2, int y2) {
-                        slashX1 = x1;
-                        slashY1 = y1;
-                        slashX2 = x2;
-                        slashY2 = y2;
-                        slashing = true;
-                        repaint();
-                    }
-                    
-                    public void resetSlash() {
-                    slashing = false;
-                    repaint();
-                    }
-                    
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-                                    Graphics2D g2d = (Graphics2D) g;
 		// Draw the background
 		g.drawImage(bg, 0, 0, this);
-                                    // Draw the slash if slashing
-                                    // Draw the slash if slashing
-                                    if (slashing) {
-                                        drawSlash(g);
-                                    }
 		// Draw hte GameObject on screen
 		GameObject obect = field.getObject();
 		images[obect.getType()].paintIcon(this, g, obect.getX(), obect.getY());

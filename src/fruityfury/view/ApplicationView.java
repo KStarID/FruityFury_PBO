@@ -34,10 +34,5 @@ public class ApplicationView extends JPanel {
 		add(barView);
 		add(gameView);
 	}
-        
-        public GameView getGameView() {
-                return gameView;
-            }
-
 
 }

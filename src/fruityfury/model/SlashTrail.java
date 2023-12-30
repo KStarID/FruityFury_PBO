@@ -1,8 +1,5 @@
 package fruityfury.model;
 
-import java.awt.Color;
-import java.awt.Graphics;
-
 public class SlashTrail {
 
 	private int startX;
@@ -17,11 +14,6 @@ public class SlashTrail {
 	public SlashTrail() {
 		setStartPosition(0, 0);
 		setEndPosition(0, 0);
-                                    this.startX = 0;
-                                    this.startY = 0;
-                                    this.endX = 0;
-                                    this.endY = 0;
-                                    this.slashed = false;
 	}
 
 	/**
@@ -74,11 +66,5 @@ public class SlashTrail {
 	public void setSlashed(boolean slashed) {
 		this.slashed = slashed;
 	}
-                public void draw(Graphics g) {
-                if (slashed) {
-                    g.setColor(Color.YELLOW); // You can change the color
-                    g.drawLine(startX, startY, endX, endY);
-                }
-            }
 
 }
